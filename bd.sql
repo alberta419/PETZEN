@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS petshop;
 CREATE DATABASE petshop;
 USE petshop;
 
@@ -9,6 +10,10 @@ CREATE TABLE pets (
     especie VARCHAR(10),
     raca VARCHAR(100)
 );
+INSERT INTO pets (id, nome, nascimento, especie, raca) VALUES
+    ('1', 'Marina da Silva', '2015-09-26', 'Canis lupus familiaris','Labrador Retriever')
+    ('2', 'Olivia Rodrigues', '2020-01-05','Canis lupus familiaris', 'Pastor Alemão') 
+    ('3', 'Donatella Vieira', '2023-06-22', 'Canis lupus familiaris', 'Golden Retriever')
 
 -- EVENTOS (AGENDA)
 CREATE TABLE eventos (
@@ -28,14 +33,14 @@ CREATE TABLE admin (
     senha VARCHAR(100)
 );
 
-INSERT INTO admin (email, senha)
-VALUES ('admin@petzen.com', '123456');
+INSERT INTO admin (email, senha) VALUES 
+('admin@gmail.com', '123456');
 
 -- FUNCIONÁRIOS
 CREATE TABLE funcionarios (
-    id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100),
-    cargo VARCHAR(100),
+    cargo VARCHAR(100) AUTO_INCREMENT PRIMARY KEY NOT NULL,
     salario DECIMAL(10,2),
     telefone VARCHAR(20)
 );
+
