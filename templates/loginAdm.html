@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Administrativo</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    <header class="main-header">
+        <nav>
+            <h1 class="logo">PETZEN - ADMIN</h1>
+            <a href="/" class="btn">Voltar ao Site</a>
+        </nav>
+    </header>
+    
+    <main class="page-container">
+        <div class="content-box" style="max-width: 450px;">
+            <form action="/login-admin" method="POST">
+                <h2 class="section-title">Login Restrito</h2>
+                {% if msg_login %}
+                    <small class="field-error" style="text-align:center; display:block; margin-bottom:15px; font-size:14px;">{{ msg_login }}</small>
+                {% endif %}
+                <div class="form-group">
+                    <label>E-mail Corporativo</label>
+                    <input type="email" name="email" placeholder="admin@gmail.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Senha</label>
+                    <div class="password-container">
+                        <input type="password" id="admin-pass" name="senha" placeholder="Senha" required>
+                        <span class="toggle-password" data-target="admin-pass">👁️</span>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-block btn-rounded">Acessar Painel</button>
+            </form>
+        </div>
+    </main>
+    <script src="/assets/script.js"></script>
+</body>
+</html>
