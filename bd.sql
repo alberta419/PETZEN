@@ -38,7 +38,6 @@ CREATE TABLE IF NOT EXISTS eventos (
     observacoes TEXT,
     FOREIGN KEY (pet_id) REFERENCES pets(id) ON DELETE CASCADE
 );
-
 -- ADMIN
 CREATE TABLE IF NOT EXISTS admin (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -47,17 +46,14 @@ CREATE TABLE IF NOT EXISTS admin (
     nome VARCHAR(100) NOT NULL DEFAULT 'Admin',
     profile_pic_url VARCHAR(255) DEFAULT '/assets/img/default-profile.png'
 );
-
 INSERT INTO admin (email, senha) VALUES 
 -- A senha '123456' é armazenada como um hash SHA-256 para segurança.
 ('admin@gmail.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92');
-
 -- CARGOS
 CREATE TABLE IF NOT EXISTS cargos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) UNIQUE NOT NULL
 );
-
 -- FUNCIONÁRIOS
 CREATE TABLE IF NOT EXISTS funcionarios (
     id INT AUTO_INCREMENT PRIMARY KEY,
