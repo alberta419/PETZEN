@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meus Pets — PETZEN</title>
+  <link rel="stylesheet" href="meuspets.css">
+  <script defer src="script.js"></script>
+  </head>
+<body>
+    <header class="main-header">
+        <nav>
+            <h1 class="logo">PETZEN</h1>
+            <a href="#" id="botaoLogin" class="nav-btn">Login</a>
+            <a href="#" id="botaoCadastro" class="nav-btn">Cadastro</a>
+            <a href="#" class="nav-btn">Conheça Nossa Clínica</a>
+        </nav>
+    </header>
+
+  <main class="container">
+    <h2>Meus Pets</h2>
+
+    <div class="cards">
+      <ul class="pet-list">
+        <li class="card add-card">
+          <img src="files/add_icon.png" alt="Novo pet">
+          <h4>Novo pet</h4>
+        </li>
+
+        <input type="radio" name="pet" id="pet-none" class="pet-none" checked hidden>
+
+        <li class="pet-item">
+          <input type="radio" name="pet" id="pet-scooby" class="pet-radio" hidden>
+          <label for="pet-scooby" class="card select-label">
+            <img src="files/scooby.png" alt="Scooby">
+            <h4>Scooby</h4>
+          </label>
+          <label for="pet-none" class="card deselect-label">
+            <img src="files/scooby.png" alt="Scooby">
+            <h4>Scooby</h4>
+          </label>
+          <div class="pet-info">
+            <p><strong>Nome:</strong> Scooby</p>
+            <p><strong>Idade:</strong> 5 anos</p>
+            <p><strong>Raça:</strong> Vira-lata</p>
+            <p><strong>Peso:</strong> 18 kg</p>
+            <p><strong>Próxima consulta:</strong> 25/03/2026</p>
+          </div>
+          <input type="checkbox" id="menu-scooby" class="menu-checkbox" hidden>
+          <label for="menu-scooby" class="menu-btn" aria-label="abrir menu">⋮</label>
+          <div class="menu">
+            <a href="#">Editar</a>
+            <a href="#">Remover</a>
+          </div>
+        </li>
+
+        <li class="pet-item">
+          <input type="radio" name="pet" id="pet-luna" class="pet-radio" hidden>
+          <label for="pet-luna" class="card select-label">
+            <img src="files/scooby.png" alt="Luna">
+            <h4>Luna</h4>
+          </label>
+          <label for="pet-none" class="card deselect-label">
+            <img src="files/scooby.png" alt="Luna">
+            <h4>Luna</h4>
+          </label>
+          <div class="pet-info">
+            <p><strong>Nome:</strong> Luna</p>
+            <p><strong>Idade:</strong> 3 anos</p>
+            <p><strong>Raça:</strong> Labrador</p>
+            <p><strong>Peso:</strong> 22 kg</p>
+            <p><strong>Próxima consulta:</strong> 10/04/2026</p>
+          </div>
+          <input type="checkbox" id="menu-luna" class="menu-checkbox" hidden>
+          <label for="menu-luna" class="menu-btn" aria-label="abrir menu">⋮</label>
+          <div class="menu">
+            <a href="#">Editar</a>
+            <a href="#">Remover</a>
+          </div>
+        </li>
+
+        <li class="pet-item">
+          <input type="radio" name="pet" id="pet-meg" class="pet-radio" hidden>
+          <label for="pet-meg" class="card select-label">
+            <img src="files/scooby.png" alt="Meg">
+            <h4>Meg</h4>
+          </label>
+          <label for="pet-none" class="card deselect-label">
+            <img src="files/scooby.png" alt="Meg">
+            <h4>Meg</h4>
+          </label>
+          <div class="pet-info">
+            <p><strong>Nome:</strong> Meg</p>
+            <p><strong>Idade:</strong> 2 anos</p>
+            <p><strong>Raça:</strong> Poodle</p>
+            <p><strong>Peso:</strong> 8 kg</p>
+            <p><strong>Próxima consulta:</strong> 02/05/2026</p>
+          </div>
+          <input type="checkbox" id="menu-meg" class="menu-checkbox" hidden>
+          <label for="menu-meg" class="menu-btn" aria-label="abrir menu">⋮</label>
+          <div class="menu">
+            <a href="#">Editar</a>
+            <a href="#">Remover</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </main>
+
+</body>
+</html>

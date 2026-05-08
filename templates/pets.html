@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área do Cliente - Meus Pets</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    <header class="main-header">
+        <nav>
+            <h1 class="logo">PETZEN</h1>
+            <a href="/pets" class="btn">Meus Pets</a>
+            <a href="/agenda" class="btn">Agenda</a>
+            <a href="/calendario" class="btn">Calendário</a>
+            <a href="/meu-plano" class="btn">Meu Plano</a>
+            
+            {% if user %}
+            <a href="/perfil" class="profile-link">
+                <img src="{{ user.profile_pic_url }}" alt="Foto de Perfil" class="profile-pic-small">
+            </a>
+            {% endif %}
+
+            <a href="/logout" class="btn">Sair</a>
+        </nav>
+    </header>
+
+    <main class="page-container">
+        <div class="content-box">
+            
+            <h2 class="section-title" style="margin-top: 20px;">Meus Pets Cadastrados</h2>
+            <div class="pets-grid-container">
+                <!-- Card de Adicionar Novo Pet -->
+                <div class="pet-card add-pet-card" id="btnAbrirPopupPet">
+                    <div class="pet-avatar" style="color: rgb(8, 87, 22);">➕</div>
+                    <div class="pet-card-name" style="color: rgb(8, 87, 22);">Novo Pet</div>
+                </div>
+
+                <!-- O Jinja2 vai repetir esse bloco para cada pet no banco de dados -->
+                {% if pets %}
+                    {% for pet in pets %}
+                    <div class="pet-card pet-card-hover" style="padding: 20px; border-radius: 8px;">
+                        <div class="pet-avatar">
+                            {% if pet.especie == 'Gato' %}🐱{% elif pet.especie == 'Cachorro' %}🐶{% else %}🐾{% endif %}
+                        </div>
+                        <div class="pet-card-name">{{ pet.nome }}</div>
+                        <div class="pet-card-info">{{ pet.raca }}</div>
+                        <div class="pet-card-info">Espécie: {{ pet.especie }}</div>
+
+                        <!-- Telinha de informações que aparece no hover -->
+                        <div class="pet-info-overlay">
+                            <p><strong>Nome:</strong> {{ pet.nome }}</p>
+                            <p><strong>Idade:</strong> {{ pet.idade }}</p>
+                            <p><strong>Raça:</strong> {{ pet.raca }}</p>
+                            <p><strong>Peso:</strong> {{ pet.peso | default('0', true) }} kg</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </main>
+
+    <!-- Popup de Novo Pet -->
+    <div class="popup-wrapper" id="popupNovoPet">
+        <div class="popup-content" style="width: 550px; max-width: 95vw;">
+            <span class="close-btn" id="fecharPopupPet">&times;</span>
+            <form action="/pets" method="POST">
+                <h2 class="section-title" style="font-size: 24px; margin-bottom: 20px;">Adicionar Novo Pet</h2>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nome do Pet</label>
+                        <input type="text" name="nome" placeholder="Ex: Scooby" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Data de Nascimento</label>
+                        <input type="date" name="nascimento" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Espécie</label>
+                        <select name="especie" required>
+                            <option value="">Selecione</option>
+                            <option value="Cachorro">Cachorro</option>
+                            <option value="Gato">Gato</option>
+                            <option value="Outro">Outro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Raça</label>
+                        <input type="text" name="raca" placeholder="Ex: Vira-lata" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Peso (kg)</label>
+                        <input type="number" step="0.01" name="peso" placeholder="Ex: 18.5" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-block btn-rounded">Cadastrar Pet</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/assets/script.js"></script>
+</body>
+</html>
