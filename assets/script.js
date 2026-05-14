@@ -70,11 +70,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  if (fundoEscuro) {
-    fundoEscuro.addEventListener('click', () => {
-      fecharPopup(popupLogin);
-      fecharPopup(popupCadastro);
-    });
+  // Permite fechar os popups clicando no fundo (no próprio elemento .popup-wrapper)
+  if (popupLogin) {
+    popupLogin.addEventListener('click', (e) => { if (e.target === popupLogin) fecharPopup(popupLogin); });
+  }
+  if (popupCadastro) {
+    popupCadastro.addEventListener('click', (e) => { if (e.target === popupCadastro) fecharPopup(popupCadastro); });
   }
 
   if (btnAbrirPopupPet) {
@@ -189,10 +190,6 @@ document.addEventListener('DOMContentLoaded', () => {
     confirmPassword.addEventListener('input', validateConfirmPassword);
 
     form.addEventListener('submit', (e) => {
-<<<<<<< HEAD
-=======
-      e.preventDefault();
->>>>>>> d758027568fe061289a230abc42ee764e76e00d1
       const isNameValid = validateName();
       const isEmailValid = validateEmail();
       const isCpfValid = validateCPF();
@@ -203,14 +200,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const allValid = isNameValid && isEmailValid && isCpfValid && isBirthValid && isPhoneValid && isPasswordValid && isConfirmPasswordValid;
 
-<<<<<<< HEAD
       if (!allValid) {
         e.preventDefault(); // Apenas impede o envio se houver erros de validação no frontend.
-=======
-      if (allValid) {
-        form.submit(); // Envia os dados para a rota /cadastro verificar duplicidades no BD
-      } else {
->>>>>>> d758027568fe061289a230abc42ee764e76e00d1
         const firstInvalid = form.querySelector('.invalid');
         if (firstInvalid) firstInvalid.focus();
       }

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Área do Cliente - Meus Pets</title>
     <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="icon" href="/assets/img/favicon.png" type="image/png">
 </head>
 <body>
     <header class="main-header">
@@ -53,12 +54,6 @@
                             <p><strong>Idade:</strong> {{ pet.idade }}</p>
                             <p><strong>Raça:</strong> {{ pet.raca }}</p>
                             <p><strong>Peso:</strong> {{ pet.peso | default('0', true) }} kg</p>
-<<<<<<< HEAD
-=======
-                            <p><strong>Altura:</strong> {{ pet.altura | default('0', true) }} cm</p>
-                            <p><strong>Comp.:</strong> {{ pet.comprimento | default('0', true) }} cm</p>
-                            <p><strong>Largura:</strong> {{ pet.largura | default('0', true) }} cm</p>
->>>>>>> d758027568fe061289a230abc42ee764e76e00d1
                         </div>
                     </div>
                     {% endfor %}
@@ -103,23 +98,6 @@
                         <label>Peso (kg)</label>
                         <input type="number" step="0.01" name="peso" placeholder="Ex: 18.5" required>
                     </div>
-<<<<<<< HEAD
-=======
-                    <div class="form-group">
-                        <label>Altura (cm)</label>
-                        <input type="number" step="0.01" name="altura" placeholder="Ex: 55.0" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Comprimento (cm)</label>
-                        <input type="number" step="0.01" name="comprimento" placeholder="Ex: 75.0" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Largura (cm)</label>
-                        <input type="number" step="0.01" name="largura" placeholder="Ex: 30.0" required>
-                    </div>
->>>>>>> d758027568fe061289a230abc42ee764e76e00d1
                 </div>
                 <button type="submit" class="btn btn-block btn-rounded">Cadastrar Pet</button>
             </form>

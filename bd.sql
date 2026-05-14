@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS clientes (
     nome VARCHAR(100) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
     cpf VARCHAR(20) NOT NULL,
-    nascimento VARCHAR(15) NOT NULL,
+    nascimento DATE NOT NULL,
     telefone VARCHAR(20) NOT NULL,
     senha VARCHAR(100) NOT NULL,
     profile_pic_url VARCHAR(255) DEFAULT '/assets/img/default-profile.png'

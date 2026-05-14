@@ -160,16 +160,15 @@ def listar_pets(request: Request, db=Depends(get_db), user: dict = Depends(get_c
 @app.post("/pets")
 def add_pet(request: Request, nome: str = Form(...), nascimento: str = Form(...),
             especie: str = Form(...), raca: str = Form(...),
-            peso: float = Form(...),
-            db=Depends(get_db), user: dict = Depends(get_current_user)):
-    cliente_id = request.cookies.get("cliente_id")
-    if not cliente_id:
+            peso: float = Form(...), db=Depends(get_db), 
+            user: dict = Depends(get_current_user)):
+    if not user or user.get('role') != 'cliente':
         return RedirectResponse(url="/", status_code=303)
 
     with db.cursor() as cursor:
         cursor.execute(
             "INSERT INTO pets (cliente_id, nome, nascimento, especie, raca, peso) VALUES (%s, %s, %s, %s, %s, %s)",
-            (cliente_id, nome, nascimento, especie, raca, peso)
+            (user['id'], nome, nascimento, especie, raca, peso)
         )
         db.commit()
     return RedirectResponse(url="/pets", status_code=303)

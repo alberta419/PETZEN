@@ -63,31 +63,19 @@
         <div class="popup-content">
             <span class="close-btn" id="fecharPopupLogin">&times;</span>
             <main class="login-form-container">
-<<<<<<< HEAD
                 <form action="/login" method="POST" autocomplete="off">
-=======
-                <form action="/login" method="POST">
->>>>>>> d758027568fe061289a230abc42ee764e76e00d1
                     <h1>Login</h1>
                     {% if msg_login %}
                         <small class="field-error" style="text-align:center; display:block; margin-bottom:10px; font-size:14px; {% if 'sucesso' in msg_login %}color: rgb(12, 128, 33);{% endif %}">{{ msg_login }}</small>
                     {% endif %}
                     <div class="form-group">
                         <label for="login-user">USUÁRIO</label>
-<<<<<<< HEAD
                         <input name="email" id="login-user" placeholder="E-mail" type="email" value="{{ saved_email | default('') }}" required autocomplete="off">
-=======
-                        <input name="email" id="login-user" placeholder="E-mail" type="email" value="{{ saved_email | default('') }}" required>
->>>>>>> d758027568fe061289a230abc42ee764e76e00d1
                     </div>
                      <div class="form-group">
                         <label for="login-pass">SENHA</label>
                         <div class="password-container">
-<<<<<<< HEAD
                             <input name="senha" id="login-pass" placeholder="Senha" type="password" required autocomplete="new-password">
-=======
-                            <input name="senha" id="login-pass" placeholder="Senha" type="password" required>
->>>>>>> d758027568fe061289a230abc42ee764e76e00d1
                             <span class="toggle-password" data-target="login-pass">👁️</span>
                         </div>
                     </div>
@@ -95,7 +83,7 @@
                     <button type="submit" id="loginSubmitBtn" class="btn btn-block btn-rounded">Login</button>
 
                     <div class="link-registro">
-                        <p>Não tem uma conta? <a href="#" id="abrirCadastroDoLogin">Cadastre-se</a><p>
+                        <p>Não tem uma conta? <a href="#" id="abrirCadastroDoLogin">Cadastre-se</a></p>
                     </div>
                 </form>
             </main>
@@ -107,11 +95,7 @@
         <div class="popup-content">
             <span class="close-btn" id="fecharPopupCadastro">&times;</span>
             <main class="cadastro-form-container">
-<<<<<<< HEAD
                 <form action="/cadastro" method="POST" id="registerForm" novalidate>
-=======
-                <form action="/cadastro" method="POST" id="registerForm">
->>>>>>> d758027568fe061289a230abc42ee764e76e00d1
                     <h1>Cadastro</h1>
                     <div class="form-group">
                         <label for="fullName">NOME COMPLETO</label>
@@ -165,7 +149,7 @@
 
                     <button type="submit" class="btn btn-block btn-rounded">Criar conta</button>
                     <div class="link-registro">
-                        <p>Já tem uma conta? <a href="#" id="abrirLoginDoCadastro">Login</a><p>
+                        <p>Já tem uma conta? <a href="#" id="abrirLoginDoCadastro">Login</a></p>
                     </div>
                 </form>
             </main>
